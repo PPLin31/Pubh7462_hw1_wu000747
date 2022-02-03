@@ -1,18 +1,27 @@
----
-title: "Homework 1"
-author: "Haolin Wu"
-date: "Feb 03rd, 2022"
-output: github_document
-includes:
-  in_header: ../qn_beamer_template.tex
-urlcolor: blue
----
-  
----
+Homework 1
+================
+Haolin Wu
+Feb 03rd, 2022
 
-```{r}
+------------------------------------------------------------------------
+
+``` r
 set.seed(7462)
 library(tidyverse)
+```
+
+    ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+
+    ## v ggplot2 3.3.5     v purrr   0.3.4
+    ## v tibble  3.1.6     v dplyr   1.0.7
+    ## v tidyr   1.1.4     v stringr 1.4.0
+    ## v readr   2.1.1     v forcats 0.5.1
+
+    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+    ## x dplyr::filter() masks stats::filter()
+    ## x dplyr::lag()    masks stats::lag()
+
+``` r
 library(forcats)
 random_number <- tibble(
   x = rnorm(1000,0,1), 
@@ -34,9 +43,8 @@ random_number %>%
   ggtitle('Random Number with Two Normal Distribution')+
   scale_color_hue(l=20, c=35)+
   labs(fill = "x_y > 0.5")
-  
-
-
 ```
+
+![](homework1_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 I did not work on problem 2.2
