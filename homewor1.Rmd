@@ -1,0 +1,41 @@
+---
+title: "Homework 1"
+author: "Haolin Wu"
+date: "Feb 03rd, 2022"
+output: github_document
+includes:
+  in_header: ../qn_beamer_template.tex
+urlcolor: blue
+---
+  
+---
+
+```{r}
+set.seed(7462)
+library(tidyverse)
+library(forcats)
+random_number <- tibble(
+  x = rnorm(1000,0,1), 
+  y = rnorm(1000,1,2),
+  sum_indicator = x+y > 0.5 
+)
+
+random_number <- random_number%>%
+  mutate(sum_indicator = factor(sum_indicator),
+         sum_indicator = fct_recode(sum_indicator,
+                                    'Yes' = 'TRUE',
+                                    'No' = 'FALSE'),
+         sum_indicator = sum_indicator %>% fct_relevel("Yes"))
+
+random_number %>%
+  ggplot(aes(y=y, x=x, col = sum_indicator == "Yes"))+geom_point() +
+  xlab("X ~ N(0,1)")+
+  ylab("Y ~ Y(1,2)")+
+  ggtitle('Random Number with Two Normal Distribution')+
+  scale_color_hue(l=20, c=35)+
+  labs(fill = "x_y > 0.5")
+  
+
+
+```
+```
